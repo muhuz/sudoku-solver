@@ -60,6 +60,18 @@ document.addEventListener("keydown", function(e) {
     }
 });
 
+function clearBoard(board){
+    for (let i = 0; i < NUM_ROWS; i++) {
+        for (let j = 0; j < NUM_COLS; j++) {
+            board.grid[i][j].change(null);
+        }
+    }
+};
+
+document.getElementById('ClearBoard').addEventListener("click", function() {
+    clearBoard(board);
+});
+
 class Square {
     constructor(element, x, y, number) {
         this.element = element;
@@ -80,17 +92,13 @@ class Square {
 
     change(number) {
         this.number = number;
-        this.element.textContent = number;
+        this.element.value = number;
     }
 };
 
 class SudokuBoard {
     constructor(table, num_rows, num_cols) {
         this.table = table;
-        this.table.addEventListener("click", function(e) {
-            console.log(e.toElement);
-            console.log(e.toElement.y);
-        })
         this.grid = [];
         for (let i=0; i<num_rows; i++) {
             this.grid[i] = new Array(num_cols);
@@ -112,4 +120,3 @@ class SudokuBoard {
 
 var puzzle_table = document.getElementById('PuzzleBoard');
 var board = new SudokuBoard(puzzle_table, NUM_ROWS, NUM_COLS);
-

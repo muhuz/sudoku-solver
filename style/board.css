@@ -28,4 +28,5 @@ tr:nth-child(3n) td {
 .square {
     height:30px;
     width:30px;
+    caret-color: transparent;
 }
