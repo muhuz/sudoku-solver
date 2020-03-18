@@ -30,3 +30,7 @@ tr:nth-child(3n) td {
     width:30px;
     caret-color: transparent;
 }
+
+.sudoku-conflict {
+    border-color: red;
+}
